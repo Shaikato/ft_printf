@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 06:18:54 by randre            #+#    #+#             */
-/*   Updated: 2023/09/23 06:18:54 by randre           ###   ########.fr       */
+/*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
+/*   Updated: 2023/09/23 08:41:43 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <unistd.h>
-#include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_xcount(int nbr)
 {
-	va_list	args;
+	int	y;
 
-	va_start(args, str);
-	while (*str)
+	y = 0;
+	while (nbr != 0)
 	{
-		if (*str != '%')
-		{
-			write(1, str, 1);
-			str++;
-		}
-		else
-		{
-			str++;
-			if (ft_isvalid_arg(*str) && *str != '%')
-			{
-				ft_typecheck(*str, args);
-				va_arg(args, int);
-			}
-			else
-				write(1, str, 1);
-			str++;
-		}
+		y++;
+		nbr /= 16;
 	}
-	return (1);
+	return (y);
+}
+
+void	ft_putnbr_long(long long int n)
+{
+	char	c;
+
+	if (n > 9)
+	{
+		ft_putnbr_long(n / 10);
+		ft_putnbr_long(n % 10);
+	}
+	c = (char)(n + 48);
+	if (n < 10)
+		write(1, &c, 1);
 }

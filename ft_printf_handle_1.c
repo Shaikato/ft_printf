@@ -27,7 +27,7 @@ void	ft_shandle(va_list args)
 {
 	char	*str;
 
-	str = va_arg(args, char*);
+	str = va_arg(args, char *);
 	write(1, str, ft_strlen(str));
 }
 
@@ -41,10 +41,12 @@ void	ft_dhandle(va_list args)
 
 void	ft_uhandle(va_list args)
 {
-	unsigned int	nbr;
+	long long int	nbrr;
 
-	nbr = va_arg(args, unsigned int);
-	ft_putnbr((int) nbr);
+	nbrr = va_arg(args, long);
+	if (nbrr < 0)
+		nbrr = 4294967296 + nbrr;
+	ft_putnbr_long(nbrr);
 }
 
 void	ft_xhandle(va_list args, int i)
@@ -52,7 +54,6 @@ void	ft_xhandle(va_list args, int i)
 	char	*base_str;
 	int		nbr;
 	int		y;
-	int		buff;
 	char	*str;
 
 	if (i == 0)
@@ -60,13 +61,7 @@ void	ft_xhandle(va_list args, int i)
 	else
 		base_str = ft_strdup("0123456789ABCDEF");
 	nbr = va_arg(args, int);
-	buff = nbr;
-	y = 0;
-	while (buff != 0)
-	{
-		y++;
-		buff /= 16;
-	}
+	y = ft_xcount(nbr);
 	i = y;
 	str = malloc(sizeof(char) * (y + 1));
 	str[y + 1] = 0;
@@ -76,4 +71,5 @@ void	ft_xhandle(va_list args, int i)
 		nbr /= 16;
 	}
 	write(1, str, i);
+	free(str);
 }

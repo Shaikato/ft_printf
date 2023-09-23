@@ -73,7 +73,7 @@ unsigned int	ft_strlen(const char *str)
 
 int	ft_isvalid_arg(const char c)
 {
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' 
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
 		|| c == 'u' || c == 'x' || c == 'X' || c == '%')
 		return (1);
 	else
