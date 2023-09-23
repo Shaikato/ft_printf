@@ -38,9 +38,9 @@ void	ft_putnbr(int n)
 		write(1, &c, 1);
 }
 
-size_t	ft_strlen(const char *str)
+unsigned int	ft_strlen(const char *str)
 {
-	size_t	i;
+	unsigned int	i;
 
 	i = 0;
 	while (*str)

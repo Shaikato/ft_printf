@@ -14,30 +14,10 @@
 #include <unistd.h>
 #include "ft_printf.h"
 
-static int	ft_count_arg(const char *str)
-{
-	int	i;
-
-	while (*str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			if (ft_isvalid_arg(*str) && *str != '%')
-				i++;
-			str++;
-		}
-		else
-			str++;
-	}
-}
-
 int	ft_printf(const char *str, ...)
 {
-	int	nbr_arg;
 	va_list args;
 
-	nbr_arg = ft_count_arg(str);
 	va_start(args, str);
 	while(*str)
 	{

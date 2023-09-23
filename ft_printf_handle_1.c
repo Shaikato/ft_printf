@@ -18,7 +18,7 @@ void	ft_chandle(va_list args)
 {
 	char	c;
 
-	c = va_arg(args, int);
+	c = (char) va_arg(args, int);
 	write(1, &c, 1);
 }
 
@@ -43,6 +43,6 @@ void	ft_uhandle(va_list args)
 	unsigned int	nbr;
 
 	nbr = va_arg(args, unsigned int);
-	ft_putnbr(nbr);
+	ft_putnbr((int) nbr);
 }
 
