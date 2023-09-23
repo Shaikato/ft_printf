@@ -13,6 +13,7 @@
 #include <stdarg.h>
 #include "ft_printf.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 void	ft_chandle(va_list args)
 {
@@ -46,3 +47,33 @@ void	ft_uhandle(va_list args)
 	ft_putnbr((int) nbr);
 }
 
+void	ft_xhandle(va_list args, int i)
+{
+	char	*base_str;
+	int		nbr;
+	int		y;
+	int		buff;
+	char	*str;
+
+	if (i == 0)
+		base_str = ft_strdup("0123456789abcdef");
+	else
+		base_str = ft_strdup("0123456789ABCDEF");
+	nbr = va_arg(args, int);
+	buff = nbr;
+	y = 0;
+	while (buff != 0)
+	{
+		y++;
+		buff /= 16;
+	}
+	i = y;
+	str = malloc(sizeof(char) * (y + 1));
+	str[y + 1] = 0;
+	while (y--)
+	{
+		str[y] = base_str[nbr % 16];
+		nbr /= 16;
+	}
+	write(1, str, i);
+}

@@ -13,6 +13,26 @@
 #include <stddef.h>
 #include <unistd.h>
 #include "ft_printf.h"
+#include <stdlib.h>
+
+char	*ft_strdup(const char *s)
+{
+	char	*str;
+	char	*start;
+
+	str = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	start = str;
+	while (*s)
+	{
+		*str = *s;
+		s++;
+		str++;
+	}
+	*str = 0;
+	return (start);
+}
 
 void	ft_putnbr(int n)
 {
@@ -74,12 +94,10 @@ int	ft_typecheck(const char c, va_list args)
 		ft_dhandle(args);
 	else if (c == 'u')
 		ft_uhandle(args);
-	/* else if (c == 'x')
+	else if (c == 'x')
 		ft_xhandle(args, 0);
 	else if (c == 'X')
 		ft_xhandle(args, 1);
-	else if (c == '%')
-		write(1, "%", 1); */
 	else
 		return (0);
 	return (1);
