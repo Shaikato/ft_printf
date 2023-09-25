@@ -136,10 +136,13 @@ int	ft_parse(const char *format, t_arg *arg)
 	}
 }
 
+#include <stdio.h>
+
 int	ft_treat(t_arg arg, va_list args)
 {
 	char	*str;
 	int		i;
+	int		op;
 
 	i = 0;
 	if (arg.type == 'c')
@@ -150,12 +153,14 @@ int	ft_treat(t_arg arg, va_list args)
 	}
 	else if (arg.type == 's')
 		str = ft_shandle(args);
-	else if (arg.type == 'd')
+	else if (arg.type == 'd' || arg.type == 'i')
 		str = ft_dhandle(args);
 	else if (arg.type == 'x')
 		str = ft_xhandle(args, 0);
 	else if (arg.type == 'X')
 		str = ft_xhandle(args, 1);
+	if (arg.precision != -1)
+		arg.space_char = ' ';
 	if (arg.left_pad == 0 && (arg.type == 'c' || arg.type == 's'))
 	{
 		while(i++ < arg.spaces - ft_strlen(str))
@@ -167,6 +172,42 @@ int	ft_treat(t_arg arg, va_list args)
 		write(1, str, ft_strlen(str));
 		while(i++ < arg.spaces - ft_strlen(str))
 			write(1, " ", 1);
+	}
+	if (arg.left_pad == 0 && (arg.type == 'd' || arg.type == 'i'))
+	{
+		op = arg.spaces - (arg.precision - ft_strlen(str)) - ft_strlen(str);
+		if (arg.precision == 0)
+			op -= ft_strlen(str);
+		if (arg.is_signed && *str != '0')
+			op--;
+		while (i++ < op)
+			write(1, &arg.space_char, 1);
+		i = 0;
+		if (arg.precision != -1 && arg.precision != 0)
+			while (i++ < arg.precision - ft_strlen(str))
+				write(1, "0", 1);
+		if (arg.is_signed)
+			if (*str != '-')
+				write(1, "+", 1);
+		if (arg.precision == 0 && *str == '0' && !arg.is_signed)
+			write(1, " ", 1);
+		else if (!(arg.precision == 0 && *str == '0'))
+			write(1, str, ft_strlen(str));
+	}
+	else if (arg.left_pad == 1 && (arg.type == 'd' || arg.type == 'i'))
+	{
+		if (arg.precision != -1 && arg.precision != 0)
+			while (i++ < arg.precision - ft_strlen(str))
+				write(1, "0", 1);
+		if (arg.is_signed)
+			if (*str != '-')
+				write(1, "+", 1);
+		if (arg.precision == 0 && *str == '0')
+			write(1, " ", 1);
+		else
+			write(1, str, ft_strlen(str));
+		while (i++ < (arg.spaces - arg.precision) - ft_strlen(str))
+			write(1, &arg.space_char, 1);
 	}
 	i += ft_strlen(str);
 	return (i);
