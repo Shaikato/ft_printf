@@ -36,4 +36,5 @@ int	ft_printf(const char *format, ...)
 			ft_init_arg(&arg);
 		}
 	}
+	return (1);
 }

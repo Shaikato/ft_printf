@@ -18,16 +18,16 @@
 
 typedef struct s_arg
 {
-	int		is_dotted;
-	int		spaces;
+	unsigned int		is_dotted;
+	unsigned int		spaces;
 	int		precision;
-	char	type;
-	int		is_signed;
-	int		ox;
-	char	space_char;
-	int		is_valid;
-	int		left_pad;
-	int		space_sign;
+	char				type;
+	unsigned int		is_signed;
+	unsigned int		ox;
+	char				space_char;
+	unsigned int		is_valid;
+	unsigned int		left_pad;
+	unsigned int		space_sign;
 }	t_arg;
 
 void	ft_init_arg(t_arg *arg);

@@ -121,7 +121,7 @@ int	ft_parse(const char *format, t_arg *arg)
 			else
 			{
 				arg->spaces *= 10;
-				arg->spaces += *format - 48;
+				arg->spaces += (unsigned int)(*format - 48);
 			}
 		}
 		if (*format == 'c' || *format == 's' || *format == 'p'
@@ -134,15 +134,16 @@ int	ft_parse(const char *format, t_arg *arg)
 		i++;
 		format++;
 	}
+	return (i);
 }
 
 #include <stdio.h>
 
 int	ft_treat(t_arg arg, va_list args)
 {
-	char	*str;
-	int		i;
-	int		op;
+	char				*str;
+	unsigned int		i;
+	unsigned int		op;
 
 	i = 0;
 	if (arg.type == 'c')
@@ -175,7 +176,7 @@ int	ft_treat(t_arg arg, va_list args)
 	}
 	if (arg.left_pad == 0 && (arg.type == 'd' || arg.type == 'i'))
 	{
-		op = arg.spaces - (arg.precision - ft_strlen(str)) - ft_strlen(str);
+		op = arg.spaces - ((unsigned int)arg.precision - ft_strlen(str)) - ft_strlen(str);
 		if (arg.precision == 0)
 			op -= ft_strlen(str);
 		if (arg.is_signed && *str != '0')
@@ -184,7 +185,7 @@ int	ft_treat(t_arg arg, va_list args)
 			write(1, &arg.space_char, 1);
 		i = 0;
 		if (arg.precision != -1 && arg.precision != 0)
-			while (i++ < arg.precision - ft_strlen(str))
+			while ((int)i++ < arg.precision - (int)ft_strlen(str))
 				write(1, "0", 1);
 		if (arg.is_signed)
 			if (*str != '-')
@@ -197,7 +198,7 @@ int	ft_treat(t_arg arg, va_list args)
 	else if (arg.left_pad == 1 && (arg.type == 'd' || arg.type == 'i'))
 	{
 		if (arg.precision != -1 && arg.precision != 0)
-			while (i++ < arg.precision - ft_strlen(str))
+			while (i++ < (unsigned int)arg.precision - ft_strlen(str))
 				write(1, "0", 1);
 		if (arg.is_signed)
 			if (*str != '-')
@@ -206,11 +207,11 @@ int	ft_treat(t_arg arg, va_list args)
 			write(1, " ", 1);
 		else
 			write(1, str, ft_strlen(str));
-		while (i++ < (arg.spaces - arg.precision) - ft_strlen(str))
+		while (i++ < (arg.spaces - (unsigned int)arg.precision) - ft_strlen(str))
 			write(1, &arg.space_char, 1);
 	}
 	i += ft_strlen(str);
-	return (i);
+	return ((int)i);
 }
 
 int	ft_xcount(int nbr)

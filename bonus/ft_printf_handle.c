@@ -52,7 +52,7 @@ char	*ft_xhandle(va_list args, int i)
 	nbr = va_arg(args, int);
 	y = ft_xcount(nbr);
 	i = y;
-	str = malloc(sizeof(char) * (y + 1));
+	str = malloc(sizeof(char) * ((unsigned int)y + 1));
 	str[y + 1] = 0;
 	while (y--)
 	{
