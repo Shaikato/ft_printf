@@ -52,19 +52,19 @@ void	ft_uhandle(va_list args)
 	ft_putnbr_long(nbrr);
 }
 
-void	ft_xhandle(va_list args, int i)
+void	ft_xhandle(va_list args, unsigned int i)
 {
-	char	*base_str;
-	int		y;
-	int		nbr;
-	char	*str;
+	char				*base_str;
+	unsigned int		y;
+	int					nbr;
+	char				*str;
 
 	if (i == 0)
 		base_str = ft_strdup("0123456789abcdef");
 	else
 		base_str = ft_strdup("0123456789ABCDEF");
 	nbr = va_arg(args, int);
-	y = ft_xcount(nbr);
+	y = (unsigned int)ft_xcount(nbr);
 	i = y;
 	str = malloc(sizeof(char) * (y + 1));
 	str[y + 1] = 0;

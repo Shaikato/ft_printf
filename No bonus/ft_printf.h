@@ -26,7 +26,7 @@ void			ft_uhandle(va_list args);
 int				ft_typecheck(const char c, va_list args);
 void			ft_putnbr(int n);
 char			*ft_strdup(const char *s);
-void			ft_xhandle(va_list args, int i);
+void			ft_xhandle(va_list args, unsigned int i);
 int				ft_xcount(int nbr);
 void			ft_putnbr_long(long long int n);
 void			ft_hexa(int nbr);

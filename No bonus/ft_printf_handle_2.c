@@ -18,6 +18,6 @@ void	ft_phandle(va_list args)
 	int	nbr;
 
 	p = va_arg(args, int*);
-	nbr = p;
+	nbr = (int)p;
 	ft_hexa(nbr);
 }
