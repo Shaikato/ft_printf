@@ -86,8 +86,8 @@ int	ft_typecheck(const char c, va_list args)
 		ft_chandle(args);
 	else if (c == 's')
 		ft_shandle(args);
-	//else if (c == 'p')
-	//	ft_phandle(args);
+	else if (c == 'p')
+		ft_phandle(args);
 	else if (c == 'd')
 		ft_dhandle(args);
 	else if (c == 'i')

@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "ft_printf.h"
+#include <stdlib.h>
 
 int	ft_xcount(int nbr)
 {
@@ -37,4 +39,31 @@ void	ft_putnbr_long(long long int n)
 	c = (char)(n + 48);
 	if (n < 10)
 		write(1, &c, 1);
+}
+
+#include <stdio.h>
+
+void	ft_hexa(int nbr)
+{
+	char	*base_str;
+	int		y;
+	char	*str;
+	int		i;
+
+	base_str = ft_strdup("0123456789ABCDEF");
+	str = malloc(sizeof(char) * 9);
+	y = -1;
+	while (y++ < 7)
+		str[y] = '0';
+	str[8] = 0;
+	y = ft_xcount(nbr);
+	i = 7;
+	while (i > 8 - y - 1)
+	{
+		str[i] = base_str[nbr % 16];
+		nbr /= 16;
+		i--;
+	}
+	write(1, str, 8);
+	free(str);
 }

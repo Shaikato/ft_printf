@@ -10,3 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
+void	ft_phandle(va_list args)
+{
+	int	*p;
+	int	nbr;
+
+	p = va_arg(args, int*);
+	nbr = p;
+	ft_hexa(nbr);
+}

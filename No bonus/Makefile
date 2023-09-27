@@ -1,5 +1,4 @@
 SRCS = ft_printf_handle_1.c \
-		ft_printf_handle_2.c \
 		ft_printf_utils_2.c \
 		ft_printf_utils.c \
 		ft_printf.c

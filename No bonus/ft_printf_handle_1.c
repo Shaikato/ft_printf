@@ -28,7 +28,10 @@ void	ft_shandle(va_list args)
 	char	*str;
 
 	str = va_arg(args, char *);
-	write(1, str, ft_strlen(str));
+	if (!str)
+		write(1, "(null)", 6);
+	else
+		write(1, str, ft_strlen(str));
 }
 
 void	ft_dhandle(va_list args)
@@ -52,8 +55,8 @@ void	ft_uhandle(va_list args)
 void	ft_xhandle(va_list args, int i)
 {
 	char	*base_str;
-	int		nbr;
 	int		y;
+	int		nbr;
 	char	*str;
 
 	if (i == 0)
