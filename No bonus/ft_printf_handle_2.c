@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdint.h>
 
 void	ft_phandle(va_list args)
 {
@@ -18,6 +19,6 @@ void	ft_phandle(va_list args)
 	int	nbr;
 
 	p = va_arg(args, int*);
-	nbr = (int)p;
+	nbr = (intptr_t)p;
 	ft_hexa(nbr);
 }
