@@ -12,13 +12,19 @@
 
 #include "ft_printf.h"
 #include <stdint.h>
+#include <unistd.h>
 
 void	ft_phandle(va_list args)
 {
 	int	*p;
 	int	nbr;
 
-	p = va_arg(args, int*);
-	nbr = (intptr_t)p;
-	ft_hexa(nbr);
+	p = va_arg (args, int *);
+	if (!p)
+		write(1, "(nil)", 5);
+	else
+	{
+		nbr = (intptr_t)p;
+		ft_hexa(nbr);
+	}
 }

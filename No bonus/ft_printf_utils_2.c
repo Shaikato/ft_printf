@@ -41,8 +41,6 @@ void	ft_putnbr_long(long long int n)
 		write(1, &c, 1);
 }
 
-#include <stdio.h>
-
 void	ft_hexa(int nbr)
 {
 	char	*base_str;

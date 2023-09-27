@@ -64,6 +64,8 @@ void	ft_xhandle(va_list args, unsigned int i)
 	else
 		base_str = ft_strdup("0123456789ABCDEF");
 	nbr = va_arg(args, int);
+	if (nbr == 0)
+		write(1, "0", 1);
 	y = (unsigned int)ft_xcount(nbr);
 	i = y;
 	str = malloc(sizeof(char) * (y + 1));
