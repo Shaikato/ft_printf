@@ -13,6 +13,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	ft_printf(const char *str, ...)
 {
@@ -32,12 +33,14 @@ int	ft_printf(const char *str, ...)
 			if (ft_isvalid_arg(*str) && *str != '%')
 			{
 				ft_typecheck(*str, args);
-				va_arg(args, int);
+				// printf("val : %d\n", va_arg(args, int));
 			}
 			else
 				write(1, str, 1);
 			str++;
 		}
 	}
+	va_end(args);
 	return (1);
 }
+
