@@ -4,6 +4,7 @@
 
 int	main(void)
 {
-	printf("%p %d %s %s %c\n", malloc, -47, "test", "sa", 'c');
-	ft_printf("%p %d %s %s %c\n", malloc, -47, "test", "sa", 'c');
+	char	str[] = "test";
+	printf("%p %d %s %s %c\n", str, -47, "test", "sa", 'c');
+	ft_printf("%p %d %s %s %c\n", str, -47, "test", "sa", 'c');
 }

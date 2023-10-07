@@ -16,16 +16,14 @@
 
 void	ft_phandle(va_list args)
 {
-	int	*p;
-	int	nbr;
+	size_t	nbr;
 
-	p = va_arg (args, int *);
-	if (!p)
+	nbr = va_arg (args, size_t);
+	if (!nbr)
 		write(1, "(nil)", 5);
 	else
 	{
 		write(1, "0x", 2);
-		nbr = (intptr_t)p;
 		ft_hexa(nbr);
 	}
 }

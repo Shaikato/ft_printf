@@ -29,7 +29,7 @@ char			*ft_strdup(const char *s);
 void			ft_xhandle(va_list args, unsigned int i);
 int				ft_xcount(int nbr);
 void			ft_putnbr_long(long long int n);
-void			ft_hexa(int nbr);
+void			ft_hexa(size_t nbr);
 void			ft_phandle(va_list args);
 
 #endif

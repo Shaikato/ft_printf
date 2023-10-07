@@ -41,27 +41,27 @@ void	ft_putnbr_long(long long int n)
 		write(1, &c, 1);
 }
 
-void	ft_hexa(int nbr)
+void	ft_hexa(size_t nbr)
 {
 	char	*base_str;
 	int		y;
 	char	*str;
 	int		i;
 
-	base_str = ft_strdup("0123456789ABCDEF");
-	str = malloc(sizeof(char) * 9);
+	base_str = ft_strdup("0123456789abcdef");
+	str = malloc(sizeof(char) * 13);
 	y = -1;
-	while (y++ < 7)
+	while (y++ < 11)
 		str[y] = '0';
-	str[8] = 0;
+	str[12] = 0;
 	y = ft_xcount(nbr);
-	i = 7;
-	while (i > 8 - y - 1)
+	i = 11;
+	while (i > -1)
 	{
 		str[i] = base_str[nbr % 16];
 		nbr /= 16;
 		i--;
 	}
-	write(1, str, 8);
+	write(1, str, 12);
 	free(str);
 }
