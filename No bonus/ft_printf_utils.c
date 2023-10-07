@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:55:36 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:28:14 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:29:21 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ char	*ft_strdup(const char *s)
 int	ft_putnbr(int n)
 {
 	char	c;
+	int		i;
 
+	i = ft_nbrlen(n);
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -47,6 +49,7 @@ int	ft_putnbr(int n)
 	{
 		write(1, "-", 1);
 		n = -n;
+		i++;
 	}
 	if (n > 9)
 	{
@@ -56,7 +59,7 @@ int	ft_putnbr(int n)
 	c = (char)(n + 48);
 	if (n < 10)
 		write(1, &c, 1);
-	return (ft_nbrlen(n));
+	return (i);
 }
 
 unsigned int	ft_strlen(const char *str)
