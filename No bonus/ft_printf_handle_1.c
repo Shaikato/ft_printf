@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 07:33:11 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:38:08 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:45:49 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int	ft_xhandle(va_list args, size_t i)
 	else
 		base_str = ft_strdup("0123456789ABCDEF");
 	nbr = va_arg(args, size_t);
-	if (nbr == 0)
-		write(1, "0", 1);
 	y = ft_xcount(nbr);
+	if (y == -1)
+		return (1);
 	i = y;
 	str = malloc(sizeof(char) * (y + 1));
 	str[y + 1] = 0;

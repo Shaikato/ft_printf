@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:39:15 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:45:31 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ size_t	ft_xcount(size_t nbr)
 
 	y = 0;
 	if (nbr == 0)
-		return (1);
+	{
+		write(1, "0", 1);
+		return (-1);
+	}
 	while (nbr != 0)
 	{
 		y++;
@@ -83,6 +86,8 @@ int	ft_hexa(size_t nbr)
 
 	base_str = ft_strdup("0123456789abcdef");
 	i = ft_xcount(nbr);
+	if (i == -1)
+		return (1);
 	str = malloc(sizeof(char) * i + 1);
 	y = -1;
 	while (y++ < i)
