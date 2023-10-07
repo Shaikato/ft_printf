@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 07:33:11 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:06:38 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:38:08 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,21 @@ int	ft_uhandle(va_list args)
 	return (ft_putnbr_long(nbrr));
 }
 
-int	ft_xhandle(va_list args, unsigned int i)
+int	ft_xhandle(va_list args, size_t i)
 {
-	char				*base_str;
-	unsigned int		y;
-	int					nbr;
-	char				*str;
+	char	*base_str;
+	size_t	y;
+	size_t	nbr;
+	char	*str;
 
 	if (i == 0)
 		base_str = ft_strdup("0123456789abcdef");
 	else
 		base_str = ft_strdup("0123456789ABCDEF");
-	nbr = va_arg(args, int);
+	nbr = va_arg(args, size_t);
 	if (nbr == 0)
 		write(1, "0", 1);
-	y = (unsigned int)ft_xcount(nbr);
+	y = ft_xcount(nbr);
 	i = y;
 	str = malloc(sizeof(char) * (y + 1));
 	str[y + 1] = 0;
