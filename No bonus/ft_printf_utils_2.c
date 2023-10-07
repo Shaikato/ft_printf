@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:13:21 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:17:21 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-int	ft_xcount(int nbr)
+int	ft_xcount(size_t nbr)
 {
 	int	y;
 
