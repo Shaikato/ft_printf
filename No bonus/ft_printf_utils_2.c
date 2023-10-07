@@ -6,13 +6,26 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:17:21 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:27:01 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_printf.h"
 #include <stdlib.h>
+
+int	ft_nbrlen(int nbr)
+{
+	int	i;
+
+	i = 0;
+	while (nbr != 0)
+	{
+		i++;
+		nbr /= 10;
+	}
+	return (i);
+}
 
 int	ft_xcount(size_t nbr)
 {

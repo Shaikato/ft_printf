@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:55:36 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:22:38 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:27:35 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,12 @@ int	ft_putnbr(int n)
 	if (n > 9)
 	{
 		ft_putnbr(n / 10);
-		i += ft_putnbr(n % 10);
+		ft_putnbr(n % 10);
 	}
 	c = (char)(n + 48);
 	if (n < 10)
-	{
 		write(1, &c, 1);
-		i++;
-	}
-	return (i);
+	return (ft_nbrlen(n));
 }
 
 unsigned int	ft_strlen(const char *str)
