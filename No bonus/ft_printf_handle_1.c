@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 07:33:11 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:45:49 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:47:58 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_uhandle(va_list args)
 int	ft_xhandle(va_list args, size_t i)
 {
 	char	*base_str;
-	size_t	y;
+	int		y;
 	size_t	nbr;
 	char	*str;
 
