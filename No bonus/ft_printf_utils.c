@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:55:36 by randre            #+#    #+#             */
-/*   Updated: 2023/09/23 06:55:36 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:06:14 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,16 @@ char	*ft_strdup(const char *s)
 	return (start);
 }
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	char	c;
+	int		i;
 
+	i = 0;
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		return ;
+		return (11);
 	}
 	if (n < 0)
 	{
@@ -50,12 +52,14 @@ void	ft_putnbr(int n)
 	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10);
+		i++;
+		i += ft_putnbr(n / 10);
 		ft_putnbr(n % 10);
 	}
 	c = (char)(n + 48);
 	if (n < 10)
 		write(1, &c, 1);
+	return (i);
 }
 
 unsigned int	ft_strlen(const char *str)
@@ -83,22 +87,20 @@ int	ft_isvalid_arg(const char c)
 int	ft_typecheck(const char c, va_list args)
 {
 	if (c == 'c')
-		ft_chandle(args);
+		return (ft_chandle(args));
 	else if (c == 's')
-		ft_shandle(args);
+		return (ft_shandle(args));
 	else if (c == 'p')
-		ft_phandle(args);
+		return (ft_phandle(args));
 	else if (c == 'd')
-		ft_dhandle(args);
+		return (ft_dhandle(args));
 	else if (c == 'i')
-		ft_dhandle(args);
+		return (ft_dhandle(args));
 	else if (c == 'u')
-		ft_uhandle(args);
+		return (ft_uhandle(args));
 	else if (c == 'x')
-		ft_xhandle(args, 0);
+		return (ft_xhandle(args, 0));
 	else if (c == 'X')
-		ft_xhandle(args, 1);
-	else
-		return (0);
-	return (1);
+		return (ft_xhandle(args, 1));
+	return (0);
 }

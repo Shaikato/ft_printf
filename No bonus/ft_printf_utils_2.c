@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
-/*   Updated: 2023/09/23 08:41:43 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:04:28 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,25 @@ int	ft_xcount(int nbr)
 	return (y);
 }
 
-void	ft_putnbr_long(long long int n)
+int	ft_putnbr_long(long long int n)
 {
 	char	c;
+	int		i;
 
+	i = 0;
 	if (n > 9)
 	{
-		ft_putnbr_long(n / 10);
+		i++;
+		i += ft_putnbr_long(n / 10);
 		ft_putnbr_long(n % 10);
 	}
 	c = (char)(n + 48);
 	if (n < 10)
 		write(1, &c, 1);
+	return (i + 1);
 }
 
-void	ft_hexa(size_t nbr)
+int	ft_hexa(size_t nbr)
 {
 	char	*base_str;
 	int		y;
@@ -64,4 +68,6 @@ void	ft_hexa(size_t nbr)
 	}
 	write(1, str, 12);
 	free(str);
+	free(base_str);
+	return (12);
 }

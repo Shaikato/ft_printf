@@ -4,7 +4,7 @@
 
 int	main(void)
 {
-	char	str[] = "test";
-	printf("%p %d %s %s %c\n", str, -47, "test", "sa", 'c');
-	ft_printf("%p %d %s %s %c\n", str, -47, "test", "sa", 'c');
-}
+	printf("%p %d %s %s %c\n", malloc, -47, "tes", "sa", 'c');
+	ft_printf("%p %d %s %s %c\n", malloc, -47, "test", "sa", 'c');
+	printf("\n%d", ft_putnbr_long(4774));
+}	

@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 07:33:11 by randre            #+#    #+#             */
-/*   Updated: 2023/09/23 07:33:11 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:06:38 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,51 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void	ft_chandle(va_list args)
+int	ft_chandle(va_list args)
 {
 	char	c;
 
 	c = (char) va_arg(args, int);
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_shandle(va_list args)
+int	ft_shandle(va_list args)
 {
 	char	*str;
 
 	str = va_arg(args, char *);
 	if (!str)
+	{
 		write(1, "(null)", 6);
+		return (6);
+	}
 	else
+	{
 		write(1, str, ft_strlen(str));
+		return (ft_strlen(str));
+	}
 }
 
-void	ft_dhandle(va_list args)
+int	ft_dhandle(va_list args)
 {
 	int	nbr;
 
 	nbr = va_arg(args, int);
-	ft_putnbr(nbr);
+	return (ft_putnbr(nbr));
 }
 
-void	ft_uhandle(va_list args)
+int	ft_uhandle(va_list args)
 {
 	long long int	nbrr;
 
 	nbrr = va_arg(args, long);
 	if (nbrr < 0)
 		nbrr = 4294967296 + nbrr;
-	ft_putnbr_long(nbrr);
+	return (ft_putnbr_long(nbrr));
 }
 
-void	ft_xhandle(va_list args, unsigned int i)
+int	ft_xhandle(va_list args, unsigned int i)
 {
 	char				*base_str;
 	unsigned int		y;
@@ -77,4 +84,6 @@ void	ft_xhandle(va_list args, unsigned int i)
 	}
 	write(1, str, i);
 	free(str);
+	free(base_str);
+	return (i);
 }
