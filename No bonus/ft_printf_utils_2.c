@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:30:17 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/07 14:32:18 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 #include <stdlib.h>
 
 int	ft_nbrlen(int nbr)
+{
+	int	i;
+
+	i = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr != 0)
+	{
+		i++;
+		nbr /= 10;
+	}
+	return (i);
+}
+
+int	ft_nbrlenlong(long long int nbr)
 {
 	int	i;
 
@@ -45,19 +60,16 @@ int	ft_xcount(size_t nbr)
 int	ft_putnbr_long(long long int n)
 {
 	char	c;
-	int		i;
 
-	i = 0;
 	if (n > 9)
 	{
-		i++;
-		i += ft_putnbr_long(n / 10);
+		ft_putnbr_long(n / 10);
 		ft_putnbr_long(n % 10);
 	}
 	c = (char)(n + 48);
 	if (n < 10)
 		write(1, &c, 1);
-	return (i + 1);
+	return (ft_nbrlenlong(n));
 }
 
 int	ft_hexa(size_t nbr)
