@@ -6,11 +6,10 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:55:36 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:29:21 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/24 16:02:20 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <unistd.h>
 #include "ft_printf.h"
 #include <stdlib.h>

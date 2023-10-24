@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:56:59 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:47:40 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:56:44 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				ft_putnbr(int n);
 char			*ft_strdup(const char *s);
 int				ft_xhandle(va_list args, size_t i);
 int				ft_xcount(size_t nbr);
-int				ft_putnbr_long(long long int n);
+int				ft_putnbr_long(unsigned int n);
 int				ft_hexa(size_t nbr);
 int				ft_phandle(va_list args);
 int				ft_nbrlen(int nbr);

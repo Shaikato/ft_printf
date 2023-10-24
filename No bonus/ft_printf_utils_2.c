@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:48:29 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:57:06 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_nbrlen(int nbr)
 	return (i);
 }
 
-int	ft_nbrlenlong(long long int nbr)
+int	ft_nbrlenlong(unsigned int nbr)
 {
 	int	i;
 
@@ -62,7 +62,7 @@ int	ft_xcount(size_t nbr)
 	return (y);
 }
 
-int	ft_putnbr_long(long long int n)
+int	ft_putnbr_long(unsigned int n)
 {
 	char	c;
 

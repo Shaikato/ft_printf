@@ -6,14 +6,12 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:18:54 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:52:50 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/24 16:02:38 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <unistd.h>
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_printf_loop(va_list args, const char *str)
 {

@@ -6,11 +6,10 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 07:33:11 by randre            #+#    #+#             */
-/*   Updated: 2023/10/07 14:49:51 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/24 16:02:03 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include "ft_printf.h"
 #include <unistd.h>
 #include <stdlib.h>
@@ -51,9 +50,9 @@ int	ft_dhandle(va_list args)
 
 int	ft_uhandle(va_list args)
 {
-	long long int	nbrr;
+	unsigned int	nbrr;
 
-	nbrr = va_arg(args, long);
+	nbrr = va_arg(args, unsigned int);
 	if (nbrr < 0)
 		nbrr = 4294967296 + nbrr;
 	return (ft_putnbr_long(nbrr));
@@ -61,12 +60,12 @@ int	ft_uhandle(va_list args)
 
 int	ft_xhandle(va_list args, size_t i)
 {
-	char	*base_str;
-	int		y;
-	size_t	nbr;
-	char	*str;
+	char			*base_str;
+	int				y;
+	unsigned int	nbr;
+	char			*str;
 
-	nbr = va_arg(args, size_t);
+	nbr = va_arg(args, unsigned int);
 	y = ft_xcount(nbr);
 	if (y == -1)
 		return (1);
