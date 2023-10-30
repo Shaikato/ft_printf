@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:18:54 by randre            #+#    #+#             */
-/*   Updated: 2023/10/24 16:02:38 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/30 09:37:41 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		i;
 
+	if (!str)
+		return (0);
 	va_start(args, str);
 	i = ft_printf_loop(args, str);
 	va_end(args);

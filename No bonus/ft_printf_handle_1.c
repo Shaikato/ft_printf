@@ -6,13 +6,12 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 07:33:11 by randre            #+#    #+#             */
-/*   Updated: 2023/10/24 16:02:03 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/30 09:56:01 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
-#include <stdlib.h>
 
 int	ft_chandle(va_list args)
 {
@@ -53,36 +52,16 @@ int	ft_uhandle(va_list args)
 	unsigned int	nbrr;
 
 	nbrr = va_arg(args, unsigned int);
-	if (nbrr < 0)
-		nbrr = 4294967296 + nbrr;
 	return (ft_putnbr_long(nbrr));
 }
 
 int	ft_xhandle(va_list args, size_t i)
 {
-	char			*base_str;
-	int				y;
 	unsigned int	nbr;
-	char			*str;
 
 	nbr = va_arg(args, unsigned int);
-	y = ft_xcount(nbr);
-	if (y == -1)
-		return (1);
 	if (i == 0)
-		base_str = ft_strdup("0123456789abcdef");
+		return (ft_hexa(nbr, "0123456789abcdef"));
 	else
-		base_str = ft_strdup("0123456789ABCDEF");
-	i = y;
-	str = malloc(sizeof(char) * (y + 1));
-	str[y + 1] = 0;
-	while (y--)
-	{
-		str[y] = base_str[nbr % 16];
-		nbr /= 16;
-	}
-	write(1, str, i);
-	free(str);
-	free(base_str);
-	return (i);
+		return (ft_hexa(nbr, "0123456789ABCDEF"));
 }

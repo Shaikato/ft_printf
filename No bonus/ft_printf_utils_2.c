@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:41:43 by randre            #+#    #+#             */
-/*   Updated: 2023/10/24 15:57:06 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/28 07:50:21 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,18 @@ int	ft_putnbr_long(unsigned int n)
 	return (ft_nbrlenlong(n));
 }
 
-int	ft_hexa(size_t nbr)
+int	ft_hexa(size_t nbr, char *base_str)
 {
-	char	*base_str;
 	int		y;
 	char	*str;
 	int		i;
 
-	base_str = ft_strdup("0123456789abcdef");
 	i = ft_xcount(nbr);
 	if (i == -1)
 		return (1);
-	str = malloc(sizeof(char) * i + 1);
+	str = (char *)malloc(sizeof(char) * i + 1);
+	if (!str)
+		return (0);
 	y = -1;
 	while (y++ < i)
 		str[y] = '0';
@@ -102,6 +102,5 @@ int	ft_hexa(size_t nbr)
 	}
 	write(1, str, i);
 	free(str);
-	free(base_str);
 	return (i);
 }

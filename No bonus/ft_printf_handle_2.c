@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 08:45:22 by randre            #+#    #+#             */
-/*   Updated: 2023/10/24 16:01:40 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/28 07:53:52 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	ft_phandle(va_list args)
 	else
 	{
 		write(1, "0x", 2);
-		return (ft_hexa(nbr) + 2);
+		return (ft_hexa(nbr, "0123456789abcdef") + 2);
 	}
 }

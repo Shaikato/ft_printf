@@ -6,32 +6,12 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 06:55:36 by randre            #+#    #+#             */
-/*   Updated: 2023/10/24 16:02:20 by randre           ###   ########.fr       */
+/*   Updated: 2023/10/30 09:55:10 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_printf.h"
-#include <stdlib.h>
-
-char	*ft_strdup(const char *s)
-{
-	char	*str;
-	char	*start;
-
-	str = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	start = str;
-	while (*s)
-	{
-		*str = *s;
-		s++;
-		str++;
-	}
-	*str = 0;
-	return (start);
-}
 
 int	ft_putnbr(int n)
 {
@@ -66,6 +46,8 @@ unsigned int	ft_strlen(const char *str)
 	unsigned int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (*str)
 	{
 		i++;
